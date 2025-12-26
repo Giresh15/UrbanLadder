@@ -1,0 +1,53 @@
+
+
+
+
+
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+<div class="table table-striped">
+
+<h2 style="text-align:center">Register</h2>
+<hr>
+<form #loginform="ngForm" novalidate (ngSubmit)="onRegist()">
+    <table style="border: 0px;">
+        <tbody>
+        <tr>
+        <td>Fname:</td><td><input type="text" name="fname" [(ngModel)]="user.fname"/></td>
+    </tr>
+    <tr><br></tr>
+    <tr>
+        <td>Lname:</td><td><input type="text" name="lname" [(ngModel)]="user.lname"/></td>
+    </tr>
+    <tr><br></tr>
+    <tr>
+        <td>Email:</td><td><input type="text" name="email" [(ngModel)]="user.email"/></td>
+    </tr>
+    <tr><br></tr>
+    <tr>
+        <td>PhoneNumber:</td><td><input type="text" name="phno" [(ngModel)]="user.phonenumber"/></td>
+    </tr>
+    <tr><br></tr>
+    <tr>
+        <td>UserName:</td><td><input type="password" name="uname" [(ngModel)]="user.username"/></td>
+    </tr>
+    <tr><br></tr>
+    <tr>
+        <td>Password:</td><td><input type="password" name="pwd" [(ngModel)]="user.password"/></td>
+    </tr>
+    <tr><br></tr>
+    <tr>
+        <td>UserType:</td><td><input type="text"  name="u_type" [(ngModel)]="user.usertype" /></td>
+    </tr>
+    <tr><br></tr>
+    <tr>
+        <td><button class="btn btn-info btn-md" type="submit">Register</button></td>
+    </tr>
+    </tbody>
+    </table>
+</form>
+</div>
+
+</div></div>
+

@@ -1,0 +1,49 @@
+<div class="main-content" class="bg bg-secondary">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+
+                <h3>Add New ProductDetails</h3>
+                <hr>
+
+                <form #furnitureform="ngForm" novalidate (ngSubmit)="onSubmit()">
+                    <table>
+                        <tbody>
+                        
+                    <tr>
+                        <td>P_name:</td><td><input type="text" name="pname" [(ngModel)]="pdetail.pname"></td>
+                    </tr>
+                    <tr><br></tr>
+                    <tr>
+                        <td>Description:</td>
+                        
+                            <td><input type="text"  name="desc" [(ngModel)]="pdetail.description"></td>
+                                
+                        
+                    </tr>
+                    <tr><br></tr>
+                    <tr>
+                        <td>Price:</td><td><input type="text" name="price" [(ngModel)]="pdetail.price"></td>
+                    </tr>
+                    <tr><br></tr>
+                    <tr>
+                        <td>Units_In_Stock:</td><td><input type="text" name="unitsinstock" [(ngModel)]="pdetail.units_in_stock"></td>
+                    </tr>
+                    <tr><br></tr>
+                    <tr>
+                        <td>Image_Url:</td><td><input type="text"  name="imageurl" [(ngModel)]="pdetail.image_url" ></td>
+                    </tr>
+                    <tr><br></tr>
+                    <tr>
+                        <td>pc_id:</td><td><input type="text"  name="pcid" [(ngModel)]="pdetail.pcid" ></td>
+                    </tr>
+                    <tr><br></tr>
+                    <tr>
+                        <td><button class="btn btn-success btn-lg" type="submit">Submit</button></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                </form>
+            
+
+            </div></div></div>
+

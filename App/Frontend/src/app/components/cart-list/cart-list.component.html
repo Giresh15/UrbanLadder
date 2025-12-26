@@ -1,0 +1,65 @@
+ <div>
+    <li><app-search></app-search></li>
+ </div>
+ 
+ <div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            
+            <ul class="nav navbar-nav navbar-right">
+            <li><span class="glyphicon glyphicon-log-out" (click)="show3()"></span> Logout</li>&nbsp;
+</ul>
+
+
+            <div class="container">
+                <div class="row">
+                    <div *ngFor="let pdetail of productdetails">
+                <div class="col-md-4">
+                    
+                        <img src={{pdetail.image_url}} style="height: 280px;width: 200px ;"alt="pet not found" class="img-rounded">
+                        <h4>{{pdetail.pname}}</h4>
+                        <h5>{{pdetail.description}}</h5>
+                        <h6>${{pdetail.price}}</h6>
+                       
+                          <button type="button" class="btn btn-success btn-lg" (click)="AddToCart(pdetail)">
+                            Add To Cart
+                       </button>
+
+                       <br><br>
+                          </div>
+                        </div>
+
+                        </div>
+         <!--  <table class='table table-bordered'>
+                <thead>
+                    <tr class='table table-striped'>
+                        <th>id</th>
+                        <th>name</th>
+                        <th>description</th>
+                        <th>price</th>
+                        <th>image_url</th>
+                        <th>user_id</th>
+                        <th>Action</th>
+                    </tr>
+            
+                </thead>
+              <tbody>
+                <tr  *ngFor="let clist of cart">
+                    <td>{{clist.id}}</td>
+                    <td>{{clist.name}}</td>
+                    <td>{{clist.descriprtion}}</td>
+                    <td>{{clist.price}}</td>
+                    <td><img src={{clist.image_url}}></td>
+                    <td>{{clist.user_id}}</td>
+                   <td>
+                       <button type="button" class="btn btn-danger btn-lg" (click)="AddToCart()">
+                             AddToCart
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>--> 
+    </div>
+</div>
+</div>
+
