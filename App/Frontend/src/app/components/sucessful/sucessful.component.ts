@@ -14,6 +14,6 @@ export class SucessfulComponent implements OnInit {
   }
 
   goback(){
-    this.router.navigateByUrl("");
+    this.router.navigateByUrl("/");
   }
 }

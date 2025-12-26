@@ -22,7 +22,7 @@ const routes :Routes = [
   {path : "",component:WelcomeComponent},
   {path : 'shopnow',component:ShopnowComponent},
   {path : 'furnitureform',component:FurnitureformComponent},
-  {path : 'editdetails/:pId',component:FurnitureformComponent},
+  {path : 'editdetails/:id',component:FurnitureformComponent},
   {path : 'products',component:ProductDetailsListComponent },
   {path : 'register',component:RegisterComponent},
   {path : 'login',component:LoginComponent},
@@ -30,7 +30,7 @@ const routes :Routes = [
   {path : 'carts',component:CartListComponent},
   {path : 'paymentform',component:PaymentformComponent},
   {path : 'addtocart',component:ProductUserListComponent},
-  {path : 'sucessful',component:SucessfulComponent},
+  {path : 'successful',component:SucessfulComponent},
   {path : 'categeory/:pcId',component:CartListComponent}
 
 

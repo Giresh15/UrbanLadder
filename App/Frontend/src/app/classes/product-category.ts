@@ -1,4 +1,4 @@
-export class ProductCategeory {
+export class ProductCategory {
 
     constructor(
         public pc_id:number,

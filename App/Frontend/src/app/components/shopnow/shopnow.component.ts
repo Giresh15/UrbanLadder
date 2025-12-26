@@ -16,15 +16,15 @@ export class ShopnowComponent implements OnInit {
   }
   show1()
   {
-    this.router.navigateByUrl("register");
+    this.router.navigateByUrl("/register");
   }
   show2()
   {
-    this.router.navigateByUrl("login");
+    this.router.navigateByUrl("/login");
   }
   buyNow(){
     window.alert("U Have To Login To Buy Product");
-    this.router.navigateByUrl("login");
+    this.router.navigateByUrl("/login");
   }
   
 

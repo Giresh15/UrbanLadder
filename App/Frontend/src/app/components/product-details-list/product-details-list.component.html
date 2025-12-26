@@ -16,8 +16,8 @@
                     <div *ngFor="let pdetail of productdetails">
                 <div class="col-md-4">
                   
-                          <img src={{pdetail.image_url}} style="height: 280px;width: 200px ;"alt="pet not found" class="img-rounded">
-                          <h4>{{pdetail.pname}}</h4>
+                          <img [src]="pdetail.image_url" style="height: 280px;width: 200px ;"alt="pet not found" class="img-rounded">
+                          <h4>{{pdetail.p_name}}</h4>
                           <h5>{{pdetail.description}}</h5>
                           <h6>${{pdetail.price}}</h6>
                           <button type="button" class="btn btn-success btn-md" (click)="updateProduct(pdetail.p_id)">

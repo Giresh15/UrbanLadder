@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cart } from 'src/app/classes/cart';
-import { ProductCategeory } from 'src/app/classes/product-categeory';
+import { ProductCategory } from 'src/app/classes/product-category';
 import { ProductDetails } from 'src/app/classes/product-details';
 import { UrbanServiceService } from 'src/app/services/urban-service.service';
 
@@ -13,7 +13,7 @@ import { UrbanServiceService } from 'src/app/services/urban-service.service';
 export class CartListComponent implements OnInit {
   cart: Cart[];
   productdetails:ProductDetails[];
-  categeory : ProductCategeory[];
+  category : ProductCategory[];
 
   searchName:string;
   currentPcId: number;
@@ -28,9 +28,6 @@ export class CartListComponent implements OnInit {
       this.getAllProductDetails()});
       this.getAllProductCategory();
 
-      this.productdetails.forEach((a:any)=>{
-Object.assign(a,{quantity:1,total:a.price});
-      })
   }
 
  
@@ -43,7 +40,7 @@ Object.assign(a,{quantity:1,total:a.price});
 
   getAllProductCategory() {
     this.urban.getAllProductCategeory().subscribe(data=>{      
-       this.categeory=data
+       this.category=data
      });
    }
 
@@ -58,8 +55,8 @@ Object.assign(a,{quantity:1,total:a.price});
       this.currentPcId = +this.activeRoute.snapshot.paramMap.get("pcId");
       this.urban.getProductsCategeoryByPcId(this.currentPcId).subscribe(data => {
         console.log(data);
-        this.categeory = data;
-      })
+        this.category = data;
+      });
   
     }
     else if(hassearchName)

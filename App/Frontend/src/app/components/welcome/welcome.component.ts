@@ -15,7 +15,7 @@ export class WelcomeComponent implements OnInit {
   }
 
  shop(){
-    this.router.navigateByUrl("shopnow");
+    this.router.navigateByUrl("/shopnow");
       window.alert("U Can Shop Now");
   }
 }

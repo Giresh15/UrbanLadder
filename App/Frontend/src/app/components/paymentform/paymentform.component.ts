@@ -15,7 +15,7 @@ export class PaymentformComponent implements OnInit {
 
   payNow(){
     
-    this.router.navigateByUrl("/sucessful")
+    this.router.navigateByUrl("/successful");
     window.alert("Your Payment is completed sucessfully.");
     }
   }

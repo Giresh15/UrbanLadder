@@ -1,7 +1,7 @@
-import { ProductCategeory } from './product-categeory';
+import { ProductCategory } from './product-category';
 
-describe('ProductCategeory', () => {
+describe('ProductCategory', () => {
   it('should create an instance', () => {
-    expect(new ProductCategeory()).toBeTruthy();
+    expect(new ProductCategory(0, '')).toBeTruthy();
   });
 });

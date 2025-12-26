@@ -8,7 +8,7 @@ import com.example.demo.entity.Cart;
 
 
 @RepositoryRestResource(path="cart")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin(origins = "*")
 public interface Cart_Jpa extends JpaRepository<Cart, Integer> {
 
 }

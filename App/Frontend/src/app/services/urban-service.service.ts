@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Cart } from '../classes/cart';
-import { ProductCategeory } from '../classes/product-categeory';
+import { ProductCategory } from '../classes/product-category';
 import { ProductDetails } from '../classes/product-details';
 import { UserDetails } from '../classes/user-details';
 
@@ -17,7 +17,7 @@ items:ProductDetails[]=[];
   cartUrl: string="http://localhost:8080/urbanladder/cart"
   productUrl: string="http://localhost:8080/urbanladder/product_details"
   user_detailsUrl: string="http://localhost:8080/urbanladder/user_details"
-  categeoryUrl: string="http://localhost:8080/urbanladder/product_categeory"
+  categeoryUrl: string="http://localhost:8080/urbanladder/product_category"
 
   constructor(private httpClient: HttpClient) { }
 
@@ -31,8 +31,14 @@ items:ProductDetails[]=[];
     pipe(map(Response=>Response._embedded.carts))
   }
 
+  login(user: UserDetails) {
+  return this.httpClient.post<UserDetails>(
+    this.user_detailsUrl + '/search/login',
+    user
+  );
+}
 
-  getAllProductCategeory() : Observable<ProductCategeory[]>
+  getAllProductCategeory() : Observable<ProductCategory[]>
   {
    return this.httpClient.get<GetProductCategeoryResponse>(this.categeoryUrl).
    pipe(map(response=>response._embedded.product_categeories))
@@ -43,7 +49,7 @@ items:ProductDetails[]=[];
   getProductsById(pId:number):Observable<ProductDetails>
    {
       const productUrl =this.productUrl+"/"+pId;
-     return this.httpClient.get<ProductDetails>(this.productUrl);
+     return this.httpClient.get<ProductDetails>(productUrl);
    }
    
   updateProduct(pdetail:ProductDetails):Observable<ProductDetails>
@@ -99,9 +105,9 @@ items:ProductDetails[]=[];
     }
 
 
-    getProductsCategeoryByPcId(pcId:number):Observable<ProductCategeory[]>
+    getProductsCategeoryByPcId(pcId:number):Observable<ProductCategory[]>
     {
-      const productByPcIdUrl= "http://localhost:8080/urbanladder/product_details/search/findBypcid?id=" + pcId;
+      const productByPcIdUrl= "http://localhost:8080/urbanladder/product_details/search/findBypcId?pcId=" + pcId;
       return this.httpClient.get<GetProductCategeoryResponse>(productByPcIdUrl).
       pipe(map(response=> response._embedded.product_categeories));
      }
@@ -112,7 +118,7 @@ items:ProductDetails[]=[];
 
    getProductsBySearchName(pname: string) : Observable<ProductDetails[]>
      {
-      const searchUrl="http://localhost:8080/urbanladder/product_details/search/findBypname?pname="+pname;
+      const searchUrl="http://localhost:8080/urbanladder/product_details/search/findBypNameContainingIgnoreCase?pName="+pname;
         return this.httpClient.get<GetSearchByPname>(searchUrl).
         pipe(map(response=>response._embedded.product_detailses));
     }
@@ -169,7 +175,7 @@ removeAllcart(){
   
   interface GetProductCategeoryResponse{
     _embedded : {
-      product_categeories : ProductCategeory[]
+      product_categeories : ProductCategory[]
     }
   }
 

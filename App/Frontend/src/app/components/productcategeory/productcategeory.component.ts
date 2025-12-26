@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductCategeory } from 'src/app/classes/product-categeory';
+import { ProductCategory } from 'src/app/classes/product-category';
 import { UrbanServiceService } from 'src/app/services/urban-service.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { UrbanServiceService } from 'src/app/services/urban-service.service';
 })
 export class ProductcategeoryComponent implements OnInit {
 
-  categeory : ProductCategeory[];
+  category : ProductCategory[];
 
   constructor(private urban:UrbanServiceService,
     private activeRoute:ActivatedRoute) { }
@@ -23,7 +23,7 @@ export class ProductcategeoryComponent implements OnInit {
 
   getAllProductCategory() {
     this.urban.getAllProductCategeory().subscribe(data=>{      
-       this.categeory=data
+       this.category=data
      });
    }
 }
