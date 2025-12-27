@@ -31,11 +31,11 @@ items:ProductDetails[]=[];
     pipe(map(Response=>Response._embedded.carts))
   }
 
-  login(user: UserDetails) {
-  const url =
-    this.user_detailsUrl +
-    `/search/findByEmailAndPassword?email=${user.email}&password=${user.password}`;
-  return this.httpClient.get<any>(url);
+login(user: UserDetails) {
+  return this.httpClient.post<UserDetails>(
+    'http://localhost:8080/urbanladder/login',
+    user
+  );
 }
 
 
