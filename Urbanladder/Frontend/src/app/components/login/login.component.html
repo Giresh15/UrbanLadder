@@ -5,23 +5,23 @@
                 <h2>Login</h2>
 
 <hr>
-<form #loginform="ngForm" novalidate (ngSubmit)="onLogin()">
+<!-- <form #loginform="ngForm" novalidate (ngSubmit)="onLogin()">
    
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Email address</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" 
+                      <input type="text" class="form-control" name ='email' id="exampleInputEmail1" aria-describedby="emailHelp" 
                       [(ngModel)]="user.email">
                       <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1"
+                      <input type="password" class="form-control"  name= 'password' id="exampleInputPassword1"
                       [(ngModel)]="user.password">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">User Type</label>
                         <select name="usertype" [(ngModel)]="user.usertype" required>
-                          <option value="" disabled selected>Select User Type</option>
+                          <option value="" >Select User Type</option>
                           <option value="user">User</option>
                           <option value="admin">Admin</option>
                         </select>
@@ -35,31 +35,41 @@
 
 
 
+-->
 
-
-
-<!--
 <form #loginform="ngForm" novalidate (ngSubmit)="onLogin()">
-    <table>
-        <tbody>
-      
-    <tr>
-        <td>Email:</td><td><input type="text" name="email" [(ngModel)]="user.email"/></td>
-    </tr>
-    <tr><br></tr>
-    <tr>
-        <td>Password:</td><td><input type="password" name="pwd" [(ngModel)]="user.password"/></td>
-    </tr>
-    <tr><br></tr>
-    <tr>
-        <td>UserType:</td><td><input type="text" name="u_type" [(ngModel)]="user.usertype"/></td>
-    </tr>
-    <tr>
-        <td><button class="btn btn-success btn btn-md" type="submit">Login</button></td>
-    </tr>
-    </tbody>
-    </table>
-</form>-->
+
+  <div class="mb-3">
+    <label>Email address</label>
+    <input type="text"
+           class="form-control"
+           name="email"
+           [(ngModel)]="user.email">
+  </div>
+
+  <div class="mb-3">
+    <label>Password</label>
+    <input type="password"
+           class="form-control"
+           name="password"
+           [(ngModel)]="user.password">
+  </div>
+
+  <div class="mb-3">
+    <label>User Type</label>
+    <select name="usertype"
+            [(ngModel)]="user.usertype"
+            required>
+      <option value="" disabled>Select User Type</option>
+      <option value="user">User</option>
+      <option value="admin">Admin</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
          
      </div>
  </div>

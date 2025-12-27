@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(): void {
+    console.log(this.user);
   this.user.usertype = this.user.usertype.toLowerCase();
    this.urban.login(this.user).subscribe(
     (dbUser) => {
