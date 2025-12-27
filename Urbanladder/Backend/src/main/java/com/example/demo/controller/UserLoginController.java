@@ -22,25 +22,18 @@ public class UserLoginController {
 @PostMapping("/login")
 public ResponseEntity<String> login(@RequestBody User_details user) {
 
-    String email = user.getEmail();
-    String password = user.getPassword();
-    String usertype = user.getUsertype().toLowerCase();
-
     User_details dbUser =
         repo.findByEmailAndPasswordAndUsertype(
-            email, password, usertype
+            user.getEmail(),
+            user.getPassword(),
+            user.getUsertype().toLowerCase()
         );
 
     if (dbUser == null) {
-        return ResponseEntity
-                .status(HttpStatus.UNAUTHORIZED)
-                .body("Invalid credentials");
+        return ResponseEntity.status(401).body("Invalid credentials");
     }
 
     return ResponseEntity.ok("Login successful");
 }
-
-
-
 
 }
