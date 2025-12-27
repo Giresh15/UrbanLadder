@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/urbanladder")
 @CrossOrigin(origins = "*")
 public class UserLoginController {
-
+    
+    @aAutowired
     private final User_details_Jpa repo;
 
     public UserLoginController(User_details_Jpa repo) {

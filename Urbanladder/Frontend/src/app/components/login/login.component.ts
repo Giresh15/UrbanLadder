@@ -9,7 +9,14 @@ import { UrbanServiceService } from 'src/app/services/urban-service.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  user:UserDetails = new UserDetails  ("","","");
+  user:UserDetails = new UserDetails  (0,
+  '',
+  '',
+  '',
+  0,
+  '',
+  '',
+  'user');
   constructor(private router:Router,private urban: UrbanServiceService) { }
 
   ngOnInit(): void {
