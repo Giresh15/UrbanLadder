@@ -33,11 +33,20 @@ items:ProductDetails[]=[];
   }
 
 login(user: UserDetails) {
-  return this.httpClient.post<UserDetails>(
-    'http://localhost:8080/urbanladder/login',
-    user
+  return this.httpClient.post(
+    '/urbanladder/login',
+    null,
+    {
+      params: {
+        email: user.email,
+        password: user.password,
+        usertype: user.usertype
+      },
+      responseType: 'text'
+    }
   );
 }
+
 
 
   getAllProductCategeory() : Observable<ProductCategory[]>

@@ -22,17 +22,20 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onLogin(): void {
-    console.log(this.user);
+ onLogin(): void {
+  console.log(this.user);
+
   this.user.usertype = this.user.usertype.toLowerCase();
-   this.urban.login(this.user).subscribe(
-    (dbUser) => {
-      if (dbUser.usertype === 'admin') {
+
+  this.urban.login(this.user).subscribe(
+    (res: string) => {
+      window.alert(res); // "Login successful"
+
+      if (this.user.usertype === 'admin') {
         this.router.navigateByUrl('/products');
       } else {
         this.router.navigateByUrl('/carts');
       }
-      window.alert('login successful');
     },
     () => {
       window.alert('login Failed....Try Again!');
@@ -40,4 +43,5 @@ export class LoginComponent implements OnInit {
     }
   );
 }
+
 }
