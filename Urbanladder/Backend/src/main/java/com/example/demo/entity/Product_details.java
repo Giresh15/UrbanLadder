@@ -38,9 +38,9 @@ public class Product_details {
 	private int pcid;
 	
 	@ManyToOne(targetEntity=
-			Product_categeory.class,fetch=FetchType.EAGER)
+			Product_category.class,fetch=FetchType.EAGER)
 		     @JoinColumn(name="pc_id",insertable=false,updatable=false)
-	private Product_categeory product_categeory;
+	private Product_category product_category;
 	
 	public Product_details() {}
 	
