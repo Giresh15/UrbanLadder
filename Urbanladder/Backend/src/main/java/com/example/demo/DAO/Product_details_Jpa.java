@@ -15,9 +15,9 @@ import com.example.demo.entity.Product_details;
 public interface Product_details_Jpa extends JpaRepository<Product_details, Integer> {
 
     // ✅ Category based products (pagination)
-    Page<Product_details> findByPcId(Integer pcId, Pageable pageable);
+    Page<Product_details> findByPcid(Integer pcid, Pageable pageable);
 
     // ✅ SEARCH (this fixes your search button)
-    List<Product_details> findByPnameContainingIgnoreCase(String pName);
+    List<Product_details> findByPnameContainingIgnoreCase(String pname);
 }
 
