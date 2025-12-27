@@ -14,10 +14,10 @@ export class UrbanServiceService {
 items:ProductDetails[]=[];
 
 
-  cartUrl: string="http://localhost:8080/urbanladder/cart"
-  productUrl: string="http://localhost:8080/urbanladder/product_details"
-  user_detailsUrl: string="http://localhost:8080/urbanladder/user_details"
-  categeoryUrl: string="http://localhost:8080/urbanladder/product_category"
+  cartUrl: string="/cart"
+  productUrl: string="/product_details"
+  user_detailsUrl: string="/user_details"
+  categeoryUrl: string="/product_category"
 
   constructor(private httpClient: HttpClient) { }
 
@@ -32,11 +32,12 @@ items:ProductDetails[]=[];
   }
 
   login(user: UserDetails) {
-  return this.httpClient.post<UserDetails>(
-    this.user_detailsUrl + '/search/login',
-    user
-  );
+  const url =
+    this.user_detailsUrl +
+    `/search/findByEmailAndPassword?email=${user.email}&password=${user.password}`;
+  return this.httpClient.get<any>(url);
 }
+
 
   getAllProductCategeory() : Observable<ProductCategory[]>
   {
@@ -105,12 +106,12 @@ items:ProductDetails[]=[];
     }
 
 
-    getProductsCategeoryByPcId(pcId:number):Observable<ProductCategory[]>
-    {
-      const productByPcIdUrl= "http://localhost:8080/urbanladder/product_details/search/findBypcId?pcId=" + pcId;
-      return this.httpClient.get<GetProductCategeoryResponse>(productByPcIdUrl).
-      pipe(map(response=> response._embedded.product_categeories));
-     }
+    getProductsCategeoryByPcId(pcId:number):Observable<ProductDetails[]> {
+  const url = `/product_details/search/findByPcId?pcId=${pcId}`;
+  return this.httpClient
+    .get<GetProductDetailResponse>(url)
+    .pipe(map(response => response._embedded.product_detailses));
+}
 
 
 
