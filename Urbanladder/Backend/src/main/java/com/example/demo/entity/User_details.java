@@ -41,9 +41,6 @@ public class User_details {
 	private String usertype;
 	
 	//lets see
-	import com.fasterxml.jackson.annotation.JsonIgnore;
-
-    @JsonIgnore
 	@OneToMany(mappedBy="user_details")
 	private Set<Cart> carts;
 	

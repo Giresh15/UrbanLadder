@@ -37,9 +37,6 @@ public class Cart {
 	@Column(name="user_id")
 	private int user_id;
 	
-	import com.fasterxml.jackson.annotation.JsonIgnore;
-
-    @JsonIgnore
 	@ManyToOne(fetch=FetchType.EAGER)
 		     @JoinColumn(name="user_id",insertable=false,updatable=false)
 	private User_details user_details;

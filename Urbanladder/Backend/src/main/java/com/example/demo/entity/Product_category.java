@@ -19,9 +19,7 @@ public class Product_category {
 	@Column(name="pc_name")
 	private String pc_name;
 
-	import com.fasterxml.jackson.annotation.JsonIgnore;
-
-    @JsonIgnore
+	
 	@OneToMany(mappedBy="product_category")
 	private Set<Product_details> productdetails;
 

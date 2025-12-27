@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RegisterUser } from 'src/app/classes/register-user';
+import { UserDetails } from 'src/app/classes/user-details';
 import { UrbanServiceService } from 'src/app/services/urban-service.service';
 
 @Component({
@@ -9,8 +10,8 @@ import { UrbanServiceService } from 'src/app/services/urban-service.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  user: RegisterUser = new RegisterUser(
-  '', '', '', 0, '', '', 'user'
+  user: UserDetails = new UserDetails(
+  0,'', '', '', 0, '', '', 'user'
 );
   constructor(private router:Router,private urban: UrbanServiceService) { }
 

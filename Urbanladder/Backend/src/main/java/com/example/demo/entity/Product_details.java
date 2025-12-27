@@ -38,9 +38,6 @@ public class Product_details {
 	private int pcid;
 	
 
-	import com.fasterxml.jackson.annotation.JsonIgnore;
-
-    @JsonIgnore
 	@ManyToOne(fetch=FetchType.EAGER)
 		     @JoinColumn(name="pc_id",insertable=false,updatable=false)
 	private Product_category product_category;
