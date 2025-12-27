@@ -9,8 +9,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="product_categeory")
-public class Product_categeory {
+@Table(name="product_category")
+public class Product_category {
 
 	@Id
 	@Column(name="pc_id")
@@ -19,12 +19,12 @@ public class Product_categeory {
 	@Column(name="pc_name")
 	private String pc_name;
 	
-	@OneToMany(mappedBy="product_categeory")
+	@OneToMany(mappedBy="product_category")
 	private Set<Product_details> productdetails;
 
-	public Product_categeory() {}
+	public Product_category() {}
 	
-	public Product_categeory(int pc_id, String pc_name) {
+	public Product_category(int pc_id, String pc_name) {
 		super();
 		this.pc_id = pc_id;
 		this.pc_name = pc_name;
@@ -48,7 +48,7 @@ public class Product_categeory {
 
 	@Override
 	public String toString() {
-		return "Product_categeory [pc_id=" + pc_id + ", pc_name=" + pc_name + ", productdetails=" + productdetails
+		return "Product_category [pc_id=" + pc_id + ", pc_name=" + pc_name + ", productdetails=" + productdetails
 				+ "]";
 	}	
 	
