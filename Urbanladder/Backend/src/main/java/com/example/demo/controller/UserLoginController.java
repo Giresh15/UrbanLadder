@@ -1,16 +1,18 @@
 package com.example.demo.controller;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 import com.example.demo.DAO.User_details_Jpa;
 import com.example.demo.entity.User_details;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.beans.factory.annotation.Autowired;
+
 
 @RestController
 @RequestMapping("/urbanladder")
 @CrossOrigin(origins = "*")
 public class UserLoginController {
     
-    @Autowired
+    
     private final User_details_Jpa repo;
 
     public UserLoginController(User_details_Jpa repo) {
@@ -26,7 +28,7 @@ public ResponseEntity<String> login(
     usertype = usertype.toLowerCase(); // 🔥 FIX
 
     User_details user =
-        userRepo.findByEmailAndPasswordAndUsertype(
+        repo.findByEmailAndPasswordAndUsertype(
             email, password, usertype
         );
 
