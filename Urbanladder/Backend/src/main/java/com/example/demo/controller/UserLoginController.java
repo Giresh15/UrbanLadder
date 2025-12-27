@@ -18,18 +18,35 @@ public class UserLoginController {
     }
 
 @PostMapping("/login")
-public User_details login(@RequestBody User_details user) {
+public ResponseEntity<String> login(
+        @RequestParam(required = false) String email,
+        @RequestParam(required = false) String password,
+        @RequestParam(required = false) String usertype) {
 
-    User_details dbUser = repo.findByEmailAndPasswordAndUsertype(
-            user.getEmail(),
-            user.getPassword(),
-            user.getUsertype().toLowerCase()
-    );
+    // ✅ 1. Validate input
+    if (email == null || email.isEmpty()
+            || password == null || password.isEmpty()
+            || usertype == null || usertype.isEmpty()) {
 
-    if (dbUser == null) {
-        throw new RuntimeException("Invalid email/password/usertype");
+        return ResponseEntity.badRequest()
+                .body("Please enter email, password and user type");
     }
 
-    return dbUser;
+    // ✅ 2. Check DB
+    User_details user =
+        userRepo.findByEmailAndPasswordAndUsertype(
+            email, password, usertype
+        );
+
+    // ✅ 3. Invalid credentials
+    if (user == null) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body("Invalid email or password");
+    }
+
+    // ✅ 4. Success
+    return ResponseEntity.ok("Login successful");
 }
+
+
 }
