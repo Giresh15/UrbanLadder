@@ -9,14 +9,15 @@ import { UrbanServiceService } from 'src/app/services/urban-service.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  user:UserDetails = new UserDetails  (0,"","","",7036144204,"","","");
+  user:UserDetails = new UserDetails  ("","","");
   constructor(private router:Router,private urban: UrbanServiceService) { }
 
   ngOnInit(): void {
   }
 
   onLogin(): void {
-  this.urban.login(this.user).subscribe(
+  this.user.usertype = this.user.usertype.toLowerCase();
+   this.urban.login(this.user).subscribe(
     (dbUser) => {
       if (dbUser.usertype === 'admin') {
         this.router.navigateByUrl('/products');

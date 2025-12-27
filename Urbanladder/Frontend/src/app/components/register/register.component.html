@@ -38,7 +38,10 @@
     </tr>
     <tr><br></tr>
     <tr>
-        <td>UserType:</td><td><input type="text"  name="u_type" [(ngModel)]="user.usertype" /></td>
+        <td>UserType:</td><td><select name="usertype" [(ngModel)]="user.usertype" required>
+  <option value="user">User</option>
+  <option value="admin">Admin</option>
+</select></td>
     </tr>
     <tr><br></tr>
     <tr>

@@ -1,4 +1,4 @@
-export class UserDetails {
+/*export class UserDetails {
 
     constructor( 
         public id:number,
@@ -13,4 +13,12 @@ export class UserDetails {
 
     }
 
+}  */
+
+export class UserDetails {
+  constructor(
+    public email: string,
+    public password: string,
+    public usertype: string
+  ){}
 }

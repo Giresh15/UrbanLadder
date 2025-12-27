@@ -55,7 +55,7 @@ export class ProductDetailsListComponent implements OnInit {
 
 show3()
 {
-  this.route.navigateByUrl("");
+  this.route.navigateByUrl("/login");
 }
   }
 

@@ -37,8 +37,11 @@ public class Product_details {
 	@Column(name="pc_id")
 	private int pcid;
 	
-	@ManyToOne(targetEntity=
-			Product_category.class,fetch=FetchType.EAGER)
+
+	import com.fasterxml.jackson.annotation.JsonIgnore;
+
+    @JsonIgnore
+	@ManyToOne(fetch=FetchType.EAGER)
 		     @JoinColumn(name="pc_id",insertable=false,updatable=false)
 	private Product_category product_category;
 	

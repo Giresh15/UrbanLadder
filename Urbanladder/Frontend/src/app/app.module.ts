@@ -26,12 +26,11 @@ const routes :Routes = [
   {path : 'products',component:ProductDetailsListComponent },
   {path : 'register',component:RegisterComponent},
   {path : 'login',component:LoginComponent},
-  {path : 'search/:pname',component:CartListComponent},
   {path : 'carts',component:CartListComponent},
   {path : 'paymentform',component:PaymentformComponent},
   {path : 'addtocart',component:ProductUserListComponent},
   {path : 'successful',component:SucessfulComponent},
-  {path : 'categeory/:pcId',component:CartListComponent}
+  {path : 'search/pname/:pname',component:CartListComponent}
 
 
 

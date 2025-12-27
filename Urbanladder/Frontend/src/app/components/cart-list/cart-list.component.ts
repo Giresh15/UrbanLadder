@@ -55,7 +55,7 @@ export class CartListComponent implements OnInit {
       this.currentPcId = +this.activeRoute.snapshot.paramMap.get("pcId");
       this.urban.getProductsCategeoryByPcId(this.currentPcId).subscribe(data => {
         console.log(data);
-        this.category = data;
+        this.productdetails = data;
       });
   
     }
@@ -81,7 +81,7 @@ else{
 
   show3()
 {
-  this.router.navigateByUrl("");
+  this.router.navigateByUrl("/login");
 }
   }
 

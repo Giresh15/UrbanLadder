@@ -10,7 +10,7 @@ import { UrbanServiceService } from 'src/app/services/urban-service.service';
 export class SearchComponent implements OnInit {
   searchName:string;
 
-  constructor(public urban:UrbanServiceService, public router : Router, 
+  constructor(public urban:UrbanServiceService, private router : Router, 
     public activatedRoute : ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit {
  search()
   {  
    //console.log(this.searchName)
-    this.router.navigateByUrl("/search/"+this.searchName);
+    this.router.navigateByUrl(`/search/pname/${this.searchName}`);
   }
   
 

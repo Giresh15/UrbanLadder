@@ -5,6 +5,7 @@ import { Cart } from '../classes/cart';
 import { ProductCategory } from '../classes/product-category';
 import { ProductDetails } from '../classes/product-details';
 import { UserDetails } from '../classes/user-details';
+import { RegisterUser } from '../classes/register-user';
 
 @Injectable({
   providedIn: 'root'
@@ -92,7 +93,7 @@ login(user: UserDetails) {
    return this.httpClient.post<ProductDetails>(this.productUrl,pdetail,httpOptions);
    }
 
-   saveUser(user: UserDetails):Observable<UserDetails>
+   saveUser(user: RegisterUser):Observable<RegisterUser>
     {
     const httpOptions=
     {
@@ -102,7 +103,7 @@ login(user: UserDetails) {
         'Access-Control-Allow-origin':'*'
       })
     };
-    return this.httpClient.post<UserDetails>(this.user_detailsUrl,user,httpOptions);
+    return this.httpClient.post<RegisterUser>(this.user_detailsUrl,user,httpOptions);
     }
 
 
@@ -119,7 +120,7 @@ login(user: UserDetails) {
 
    getProductsBySearchName(pname: string) : Observable<ProductDetails[]>
      {
-      const searchUrl="http://localhost:8080/urbanladder/product_details/search/findBypNameContainingIgnoreCase?pName="+pname;
+      const searchUrl="/product_details/search/findByPnameContainingIgnoreCase?pname=" + pname;
         return this.httpClient.get<GetSearchByPname>(searchUrl).
         pipe(map(response=>response._embedded.product_detailses));
     }

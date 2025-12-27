@@ -17,17 +17,18 @@ import javax.persistence.Table;
 public class Cart {
     
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
 	@Column(name="name")
 	private String name;
 	
-	@Column(name="descriprtion")
-	private String descriprtion;
+	@Column(name="description")
+	private String description;
 	
 	@Column(name="price")
-	private int price;
+	private double price;
 	
 	@Column(name="image_url")
 	private String image_url;
@@ -36,8 +37,10 @@ public class Cart {
 	@Column(name="user_id")
 	private int user_id;
 	
-	@ManyToOne(targetEntity=
-			User_details.class,fetch=FetchType.EAGER)
+	import com.fasterxml.jackson.annotation.JsonIgnore;
+
+    @JsonIgnore
+	@ManyToOne(fetch=FetchType.EAGER)
 		     @JoinColumn(name="user_id",insertable=false,updatable=false)
 	private User_details user_details;
 	
