@@ -20,25 +20,26 @@ public class UserLoginController {
     }
 
 @PostMapping("/login")
-public ResponseEntity<String> login(
-        @RequestParam String email,
-        @RequestParam String password,
-        @RequestParam String usertype) {
+public ResponseEntity<String> login(@RequestBody User_details user) {
 
-    usertype = usertype.toLowerCase(); // 🔥 FIX
+    String email = user.getEmail();
+    String password = user.getPassword();
+    String usertype = user.getUsertype().toLowerCase();
 
-    User_details user =
+    User_details dbUser =
         repo.findByEmailAndPasswordAndUsertype(
             email, password, usertype
         );
 
-    if (user == null) {
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+    if (dbUser == null) {
+        return ResponseEntity
+                .status(HttpStatus.UNAUTHORIZED)
                 .body("Invalid credentials");
     }
 
     return ResponseEntity.ok("Login successful");
 }
+
 
 
 
