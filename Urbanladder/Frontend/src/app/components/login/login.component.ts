@@ -23,25 +23,22 @@ export class LoginComponent implements OnInit {
   }
 
  onLogin(): void {
-  console.log(this.user);
-
   this.user.usertype = this.user.usertype.toLowerCase();
 
   this.urban.login(this.user).subscribe(
-    (res: string) => {
-      window.alert(res); // "Login successful"
-
+    res => {
+      alert(res);
       if (this.user.usertype === 'admin') {
         this.router.navigateByUrl('/products');
       } else {
         this.router.navigateByUrl('/carts');
       }
     },
-    () => {
-      window.alert('login Failed....Try Again!');
-      this.router.navigateByUrl('/login');
+    err => {
+      alert('Login failed');
     }
   );
 }
+
 
 }
