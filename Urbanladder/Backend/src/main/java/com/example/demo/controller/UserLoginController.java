@@ -3,13 +3,14 @@ package com.example.demo.controller;
 import com.example.demo.DAO.User_details_Jpa;
 import com.example.demo.entity.User_details;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
 @RequestMapping("/urbanladder")
 @CrossOrigin(origins = "*")
 public class UserLoginController {
     
-    @aAutowired
+    @Autowired
     private final User_details_Jpa repo;
 
     public UserLoginController(User_details_Jpa repo) {

@@ -8,7 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 
 import javax.persistence.ManyToOne;
-
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 import javax.persistence.Table;
 
@@ -28,7 +29,7 @@ public class Cart {
 	private String description;
 	
 	@Column(name="price")
-	private double price;
+	private int price;
 	
 	@Column(name="image_url")
 	private String image_url;
@@ -43,11 +44,11 @@ public class Cart {
 	
 	public Cart() {}
 	
-	public Cart(int id, String name, String descriprtion, int price, String image_url, int user_id) {
+	public Cart(int id, String name, String description, int price, String image_url, int user_id) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.descriprtion = descriprtion;
+		this.description = description;
 		this.price = price;
 		this.image_url = image_url;
 		this.user_id = user_id;
@@ -69,12 +70,12 @@ public class Cart {
 		this.name = name;
 	}
 
-	public String getDescriprtion() {
-		return descriprtion;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDescriprtion(String descriprtion) {
-		this.descriprtion = descriprtion;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public int getPrice() {
@@ -103,7 +104,7 @@ public class Cart {
 
 	@Override
 	public String toString() {
-		return "Cart [id=" + id + ", name=" + name + ", descriprtion=" + descriprtion + ", price=" + price
+		return "Cart [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price
 				+ ", image_url=" + image_url + ", user_id=" + user_id + ", user_details=" + user_details + "]";
 	}
 	
