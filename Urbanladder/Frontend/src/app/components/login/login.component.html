@@ -37,7 +37,7 @@
 
 -->
 
-<form #loginform="ngForm" novalidate (ngSubmit)="onLogin()">
+<form #loginform="ngForm" (ngSubmit)="onLogin(); $event.preventDefault()">
 
   <div class="mb-3">
     <label>Email address</label>
