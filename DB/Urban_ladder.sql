@@ -24,7 +24,6 @@ INSERT INTO user_details (id, fname, lname, email, phonenumber, username, passwo
 (2, 'Patro', 'Prasanth', 'prasanth@gmail.com', 7036120184, 'prasanth', 'prasanth@123', 'user'),
 (3, 'anvesh', '', 'anvesh@gmail.com', 9642482096, 'anvesh', 'anvesh@123', 'user'),
 (4, 'raja', 'p', 'raja@gmail.com', 7896352410, 'raja', 'raja@123', 'user'),
-(5, 'first', 'RG', 'RG@gmail.com', 7036144204, 'name', 'RG', 'user'),
 (6, 'first', 'RG', 'RG@gmail.com', 7036144204, 'name', 'RG', 'admin');
 
 -- ===============================

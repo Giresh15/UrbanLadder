@@ -20,8 +20,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">User Type</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1"
-                        [(ngModel)]="user.usertype">
+                        <select name="usertype" [(ngModel)]="user.usertype" required>
+                          <option value="" disabled selected>Select User Type</option>
+                          <option value="user">User</option>
+                          <option value="admin">Admin</option>
+                        </select>
                       </div>
                     <div class="mb-3 form-check">
                       <input type="checkbox" class="form-check-input" id="exampleCheck1">

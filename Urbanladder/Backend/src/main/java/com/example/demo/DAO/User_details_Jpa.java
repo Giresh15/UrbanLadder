@@ -9,7 +9,11 @@ import com.example.demo.entity.User_details;
 @RepositoryRestResource(path = "user_details")
 @CrossOrigin(origins = "*")
 public interface User_details_Jpa extends JpaRepository<User_details, Integer> {
-    User_details findByEmailAndPassword(String email, String password);
+    User_details findByEmailAndPasswordAndUsertype(
+            String email,
+            String password,
+            String usertype
+    );
 
 }
 

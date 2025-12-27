@@ -15,11 +15,19 @@ public class UserLoginController {
         this.repo = repo;
     }
 
-    @PostMapping("/login")
-    public User_details login(@RequestBody User_details user) {
-        return repo.findByEmailAndPassword(
-                user.getEmail(),
-                user.getPassword()
-        );
+@PostMapping("/login")
+public User_details login(@RequestBody User_details user) {
+
+    User_details dbUser = repo.findByEmailAndPasswordAndUsertype(
+            user.getEmail(),
+            user.getPassword(),
+            user.getUsertype().toLowerCase()
+    );
+
+    if (dbUser == null) {
+        throw new RuntimeException("Invalid email/password/usertype");
     }
+
+    return dbUser;
+}
 }
