@@ -1,83 +1,40 @@
+<div class="checkout-wrapper">
 
-<div class="container"  class="bg bg-info">
-        
-<div class="table-bordered">
-                <h3  style="text-align: center" class="title">billing address</h3>
+  <h2 class="checkout-title">Checkout</h2>
 
-                <table>
-                    <tbody>
-                    <tr>
-                    <td>full Name :</td>
-                    <td><input type="text" placeholder="john deo"></td>
-                </tr>
-                <tr><br></tr>
-                <tr>
-                    <td>email :</td>
-                   <td> <input type="email" placeholder="example@example.com"></td>
-                </tr>
-                <tr><br></tr>
-                <tr>
-                    <td>address :</td>
-                   <td> <input type="text" placeholder="room - street - locality"></td>
-                </tr>
-                <tr><br></tr>
-                <tr>
-                    <td>city :</td>
-                    <td><input type="text" placeholder="mumbai"></td>
-                </tr>
-                <tr><br></tr>
-                <tr>
-                        <td>state :</td>
-                        <td><input type="text" placeholder="india"></td>
-                    </tr>
-                    <tr><br></tr>
-                    <tr>
-                        <td>zip code :</td>
-                        <td><input type="text" placeholder="123 456"></td>
-                    </tr>
-                    <tr><br></tr>
-                </tbody>
-                </table>
-                </div>
-  <div class="table-bordered">
-                <h3 style="text-align: center"  class="title">payment</h3>
-<table>
-    <tbody>
-               <tr>
-                    <td>cards accepted :</td>
-                    <td><img src="/assets/images/card_img.png" alt=""></td>
-                </tr>
-                <tr><br></tr>
-                <tr>
-                    <td>name on card :</td>
-                   <td><input type="text" placeholder="mr. john deo"></td> 
-                </tr>
-                <tr><br></tr>
-                <tr>
-                    <td>credit card number :</td>
-                   <td> <input type="number" placeholder="1111-2222-3333-4444"></td>
-                </tr>
-                <tr><br></tr>
-               <tr>
-                    <td>exp month :</td>
-                    
-                    <td><input type="text" placeholder="january"></td>
-                </tr>
+  <div class="checkout-grid">
 
-                <tr><br></tr>
-                    <tr>
-                        <td>exp year :</td>
-                        <td> <input type="number" placeholder="2022"></td>
-                    </tr>
-                    <tr><br></tr>
-                    <tr >
-                        <td>CVV :</td>
-                        <td><input type="password" placeholder="1234"></td>
-                    </tr>
-                </tbody> 
-    </table>
-    <br><br>
-        <button type="button" class="btn btn-success btn-lg" (click)="payNow()"> PayNow </button>
+    <!-- BILLING ADDRESS -->
+    <div class="checkout-card">
+      <h3>Billing Address</h3>
+
+      <input type="text" placeholder="Full Name">
+      <input type="email" placeholder="Email">
+      <input type="text" placeholder="Address">
+      <input type="text" placeholder="City">
+      <input type="text" placeholder="State">
+      <input type="text" placeholder="Zip Code">
     </div>
-   
-</div>  
+
+    <!-- PAYMENT -->
+    <div class="checkout-card">
+      <h3>Payment</h3>
+
+      <img src="assets/images/card_img.png" class="card-img" alt="Cards">
+
+      <input type="text" placeholder="Name on Card">
+      <input type="number" placeholder="Card Number">
+      <input type="text" placeholder="Expiry Month">
+      <input type="number" placeholder="Expiry Year">
+      <input type="password" placeholder="CVV">
+    </div>
+
+  </div>
+
+  <div class="checkout-footer">
+    <button class="btn btn-success btn-lg" (click)="payNow()">
+      Pay Now
+    </button>
+  </div>
+
+</div>

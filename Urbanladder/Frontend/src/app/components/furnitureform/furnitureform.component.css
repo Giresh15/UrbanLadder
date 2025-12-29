@@ -1,0 +1,45 @@
+/* PAGE */
+.add-product-page {
+  min-height: 100vh;
+  background: #f4f6f8;
+  padding: 40px 0;
+}
+
+/* CARD */
+.form-card {
+  max-width: 600px;
+  margin: auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+/* TITLE */
+.form-title {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* FORM */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.form-control {
+  height: 44px;
+  border-radius: 8px;
+}
+
+/* BUTTON */
+.form-actions {
+  text-align: center;
+  margin-top: 25px;
+}

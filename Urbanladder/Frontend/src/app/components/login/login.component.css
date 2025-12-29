@@ -1,0 +1,136 @@
+.auth-wrapper {
+  min-height: 100vh;
+  background: #f5f6fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-container {
+  width: 90%;
+  max-width: 1100px;
+  min-height: 600px;
+  background: white;
+  display: flex;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+  padding-top: 10px;
+}
+
+/* LEFT PANEL */
+.auth-left {
+  flex: 1;
+  background: linear-gradient(135deg, #ff7a18, #ffb347);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ✅ SINGLE LEFT-CONTENT (FIXED) */
+.left-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;     /* vertical center */
+  align-items: flex-start;     /* left aligned */
+  text-align: left;
+  padding: 0 60px;
+}
+
+.left-content h2 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  line-height: 1.25;
+  color: #111;                 /* ensure visibility */
+}
+
+.left-content p {
+  font-size: 15px;
+  opacity: 0.9;
+  margin-bottom: 36px;
+  max-width: 380px;
+}
+
+.left-content img {
+  width: 260px;
+  height: auto;
+  margin-top: 10px;
+  align-self: center;
+  object-fit: contain;
+}
+
+/* RIGHT PANEL */
+.auth-right {
+  flex: 1;
+  display: flex;
+  align-items: center;       /* ✅ vertical center */
+  justify-content: center;   /* ✅ horizontal center */
+}
+
+.login-card {
+  width: 80%;
+  max-width: 380px;
+}
+
+.login-card h3 {
+  margin-top: 0; 
+  padding-top: 0;         /* FIX top spacing */
+}
+
+.login-card p {
+  color: #777;
+  margin-bottom: 26px;
+}
+
+.login-card input,
+.login-card select {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.login-card button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: #ff7a18;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-card button:hover {
+  background: #ff6a00;
+}
+
+.register-text {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+.register-text a {
+  color: #ff7a18;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .auth-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .auth-left {
+    display: none;
+  }
+}

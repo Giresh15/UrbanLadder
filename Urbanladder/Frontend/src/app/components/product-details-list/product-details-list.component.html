@@ -1,75 +1,56 @@
-<div class="main-content" >
-    <div class="section-content section-content-p30">
-        <div class="container-fluid">
-            <button type="button" class="btn btn-info btn btn-lg" (click)="addFurnitureForm()">
-                Add Furniture</button>
-                
-                <ul class="nav navbar-nav navbar-right">
-                <li><span class="glyphicon glyphicon-log-out" (click)="show3()"></span> Logout</li>
-            </ul>
-                <hr>
-             <!-- <a routerLink="/furnitureform" >Add New Furniture</a> -->
+<div class="admin-page">
 
+  <!-- TOP BAR -->
+  <div class="admin-header">
+    <button class="btn btn-info btn-lg" (click)="addFurnitureForm()">
+      + Add Furniture
+    </button>
 
-             <div class="container">
-                <div class="row">
-                    <div *ngFor="let pdetail of productdetails">
-                <div class="col-md-4">
-                  
-                          <img [src]="pdetail.image_url" style="height: 280px;width: 200px ;"alt="pet not found" class="img-rounded">
-                          <h4>{{pdetail.pname}}</h4>
-                          <h5>{{pdetail.description}}</h5>
-                          <h6>${{pdetail.price}}</h6>
-                          <button type="button" class="btn btn-success btn-md" (click)="updateProduct(pdetail.p_id)">
-                            update
-                        </button>
-                        &nbsp;&nbsp;
-                        <button type="button" class="btn btn-danger btn-md" (click)="deleteProduct(pdetail.p_id)">
-                            Delete
-                        </button>
+    <button class="btn btn-danger btn-lg" (click)="show3()">
+      Logout
+    </button>
+  </div>
 
-                        <br><br>
-                    </div>
-                          </div>
+  <hr>
 
-                        </div>
-             <!-- <table class='table table-bordered'>
-                <thead>
-                    <tr class='table table-striped'>
-                        <th>p_id</th>
-                        <th>p_name</th>
-                        <th>description</th>
-                        <th>price</th>
-                        <th>units_in_stock</th>
-                        <th>image_url</th>
-                        <th>pc_id</th>
-                        <th>Action</th>
-                    </tr>
-            
-                </thead>
-              <tbody>
-                <tr  *ngFor="let pdetail of productdetails">
-                    <td>{{pdetail.p_id}}</td>
-                    <td>{{pdetail.p_name}}</td>
-                    <td>{{pdetail.description}}</td>
-                    <td>{{pdetail.price}}</td>
-                    <td>{{pdetail.units_in_stock}}</td>
-                    <td><img src={{pdetail.image_url}}></td>
-                    <td>{{pdetail.pc_id}}</td>
-                    <td>
-                       <button type="button" class="btn btn-success btn-lg" (click)="updateProduct(pdetail.p_id)">
-                            update
-                        </button>
-                        &nbsp;&nbsp;
-                        <button type="button" class="btn btn-danger btn-lg" (click)="deleteProduct(pdetail.p_id)">
-                            Delete
-                        </button>
-                    </td>
-                    </tr>
-                </tbody>
-            </table>-->
+  <!-- PRODUCT GRID -->
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-4" *ngFor="let pdetail of productdetails">
+
+        <div class="admin-card">
+
+          <img
+            [src]="pdetail.image_url"
+            alt="product image"
+          />
+
+          <h4>{{ pdetail.pname }}</h4>
+
+          <p class="desc">{{ pdetail.description }}</p>
+
+          <p class="price">₹{{ pdetail.price }}</p>
+
+          <div class="action-row">
+            <button
+              class="btn btn-success btn-sm"
+              (click)="updateProduct(pdetail.p_id)">
+              Update
+            </button>
+
+            <button
+              class="btn btn-danger btn-sm"
+              (click)="deleteProduct(pdetail.p_id)">
+              Delete
+            </button>
+          </div>
+
         </div>
+
+      </div>
+
     </div>
+  </div>
+
 </div>
-
-

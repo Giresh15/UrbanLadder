@@ -1,49 +1,84 @@
-<div class="main-content" class="bg bg-secondary">
-    <div class="section-content section-content-p30">
-        <div class="container-fluid">
+<div class="add-product-page">
 
-                <h3>Add New ProductDetails</h3>
-                <hr>
+  <div class="container">
 
-                <form #furnitureform="ngForm" novalidate (ngSubmit)="onSubmit()">
-                    <table>
-                        <tbody>
-                        
-                    <tr>
-                        <td>P_name:</td><td><input type="text" name="pname" [(ngModel)]="pdetail.pname"></td>
-                    </tr>
-                    <tr><br></tr>
-                    <tr>
-                        <td>Description:</td>
-                        
-                            <td><input type="text"  name="desc" [(ngModel)]="pdetail.description"></td>
-                                
-                        
-                    </tr>
-                    <tr><br></tr>
-                    <tr>
-                        <td>Price:</td><td><input type="text" name="price" [(ngModel)]="pdetail.price"></td>
-                    </tr>
-                    <tr><br></tr>
-                    <tr>
-                        <td>Units_In_Stock:</td><td><input type="text" name="unitsinstock" [(ngModel)]="pdetail.units_in_stock"></td>
-                    </tr>
-                    <tr><br></tr>
-                    <tr>
-                        <td>Image_Url:</td><td><input type="text"  name="imageurl" [(ngModel)]="pdetail.image_url" ></td>
-                    </tr>
-                    <tr><br></tr>
-                    <tr>
-                        <td>pc_id:</td><td><input type="text"  name="pc_id" [(ngModel)]="pdetail.pc_id" ></td>
-                    </tr>
-                    <tr><br></tr>
-                    <tr>
-                        <td><button class="btn btn-success btn-lg" type="submit">Submit</button></td>
-                    </tr>
-                    </tbody>
-                    </table>
-                </form>
-            
+    <div class="form-card">
 
-            </div></div></div>
+      <h3 class="form-title">Add New Product</h3>
+      <hr>
 
+      <form #furnitureform="ngForm" novalidate (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+          <label>Product Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="pname"
+            [(ngModel)]="pdetail.pname"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="desc"
+            [(ngModel)]="pdetail.description"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label>Price</label>
+          <input
+            type="number"
+            class="form-control"
+            name="price"
+            [(ngModel)]="pdetail.price"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label>Units In Stock</label>
+          <input
+            type="number"
+            class="form-control"
+            name="unitsinstock"
+            [(ngModel)]="pdetail.units_in_stock"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label>Image URL</label>
+          <input
+            type="text"
+            class="form-control"
+            name="imageurl"
+            [(ngModel)]="pdetail.image_url"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label>Category ID (pc_id)</label>
+          <input
+            type="number"
+            class="form-control"
+            name="pc_id"
+            [(ngModel)]="pdetail.pc_id"
+            required>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-success btn-lg" type="submit">
+            Save Product
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,78 +1,64 @@
-<div class="main-content">
-    <div class="section-content section-content-p30">
-        <div class="container-fluid">
+<div class="auth-wrapper">
+  <div class="auth-container">
 
-                <h2>Login</h2>
+    <!-- LEFT SIDE -->
+    <div class="auth-left">
+      <div class="left-content">
+        <h2>Simplify management with our dashboard.</h2>
+        <p>
+          Simplify your e-commerce management with our
+          user-friendly admin dashboard.
+        </p>
 
-<hr>
-<!-- <form #loginform="ngForm" novalidate (ngSubmit)="onLogin()">
-   
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Email address</label>
-                      <input type="text" class="form-control" name ='email' id="exampleInputEmail1" aria-describedby="emailHelp" 
-                      [(ngModel)]="user.email">
-                      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                    </div>
-                    <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input type="password" class="form-control"  name= 'password' id="exampleInputPassword1"
-                      [(ngModel)]="user.password">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">User Type</label>
-                        <select name="usertype" [(ngModel)]="user.usertype" required>
-                          <option value="" >Select User Type</option>
-                          <option value="user">User</option>
-                          <option value="admin">Admin</option>
-                        </select>
-                      </div>
-                    <div class="mb-3 form-check">
-                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </form>
+        <img
+          src="assets/images/login-illustration.jpg"
+          alt="Illustration"
+        />
+      </div>
+    </div>
 
+    <!-- RIGHT SIDE -->
+    <div class="auth-right">
+      <div class="login-card">
+        <h3>Welcome Back</h3>
+        <p>Please login to your account</p>
 
+        <form (ngSubmit)="onLogin()">
 
--->
+          <input
+            type="email"
+            placeholder="Email address"
+            [(ngModel)]="user.email"
+            name="email"
+            required
+          />
 
-<form #loginform="ngForm" (ngSubmit)="onLogin(); $event.preventDefault()">
+          <input
+            type="password"
+            placeholder="Password"
+            [(ngModel)]="user.password"
+            name="password"
+            required
+          />
 
-  <div class="mb-3">
-    <label>Email address</label>
-    <input type="text"
-           class="form-control"
-           name="email"
-           [(ngModel)]="user.email">
-  </div>
-
-  <div class="mb-3">
-    <label>Password</label>
-    <input type="password"
-           class="form-control"
-           name="password"
-           [(ngModel)]="user.password">
-  </div>
-
-  <div class="mb-3">
-    <label>User Type</label>
-    <select name="usertype"
+          <select
             [(ngModel)]="user.usertype"
+            name="usertype"
             required>
-      <option value="" disabled>Select User Type</option>
-      <option value="user">User</option>
-      <option value="admin">Admin</option>
-    </select>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+          </select>
+
+          <button type="submit">Login</button>
+
+          <div class="register-text">
+            Don’t have an account?
+            <a routerLink="/register">Register</a>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
   </div>
-
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-
-
-         
-     </div>
- </div>
 </div>
-
-

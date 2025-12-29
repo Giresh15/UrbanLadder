@@ -1,27 +1,40 @@
-<nav class="navbar navbar-default">
-  <ul class="nav navbar-nav navbar-right">
+<!-- NAVBAR -->
+<nav class="navbar navbar-default cart-navbar">
+  <div class="container-fluid">
     <button type="button" class="btn btn-primary btn-lg" (click)="shopMore()">
-      shop More..
+      Shop More
     </button>
-  </ul>
+  </div>
 </nav>
 
-<h1 style="text-align:center">Cart</h1>
+<h1 class="cart-title">My Cart</h1>
 
-<div class="cart-item" *ngFor="let item of items; let i=index">
-  <input type="radio"/>
-  <h4>{{i+1}}</h4>
+<!-- CART LIST -->
+<div class="cart-container">
 
-  <img [src]="item.image_url"
-       style="height: 280px;width: 200px;"
-       alt="image not found"
-       class="img-rounded">
+  <div class="cart-card" *ngFor="let item of items; let i=index">
 
-  <h4>{{item.pname}}</h4>
-  <h5>{{item.description}}</h5>
-  <h5>Price :</h5>&nbsp;<h6>${{item.price}}</h6>
+    <input type="checkbox" class="cart-check"/>
+
+    <img
+      [src]="item.image_url"
+      alt="image not found"
+      class="cart-img"
+    >
+
+    <div class="cart-details">
+      <h4>{{ item.pname }}</h4>
+      <p>{{ item.description }}</p>
+      <div class="cart-price">₹{{ item.price }}</div>
+    </div>
+
+  </div>
+
 </div>
 
-<button type="button" class="btn btn-success btn-lg" (click)="buyNow()">
-  Buy Now
-</button>
+<!-- BUY BUTTON -->
+<div class="cart-footer">
+  <button type="button" class="btn btn-success btn-lg" (click)="buyNow()">
+    Buy Now
+  </button>
+</div>

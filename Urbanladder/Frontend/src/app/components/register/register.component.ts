@@ -18,10 +18,18 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onRegist():void{
-    console.log(this.user);
-  this.urban.saveUser(this.user).subscribe(data=>
-    console.log(data));
-    this.router.navigateByUrl("/login");
-  }
+  onRegist(): void {
+  console.log(this.user);
+
+  this.urban.saveUser(this.user).subscribe(
+    () => {
+      alert('Registration successful');
+      this.router.navigateByUrl('/login');
+    },
+    error => {
+      console.error(error);
+      alert('Registration failed');
+    }
+  );
+}
 }

@@ -1,70 +1,47 @@
- <div>
-    <li><app-search></app-search></li>
- </div>
- 
- <div class="main-content">
-    <div class="section-content section-content-p30">
-        <div class="container-fluid">
-            
-            <ul class="nav navbar-nav navbar-right">
-            <li><span class="glyphicon glyphicon-log-out" (click)="show3()"></span> Logout</li>&nbsp;
-</ul>
+<!-- SEARCH -->
+<div class="search-bar">
+  <app-search></app-search>
+</div>
 
+<!-- TOP BAR -->
+<div class="top-actions">
+  <button class="logout-btn" (click)="show3()">
+    <span class="glyphicon glyphicon-log-out"></span> Logout
+  </button>
+</div>
 
-            <div class="container">
-                <div class="row">
-                    <div *ngFor="let pdetail of productdetails">
-                <div class="col-md-4">
-                    
-                        <img [src]="pdetail.image_url"
-     style="height: 280px;width: 200px;"
-     alt="image not found"
-     class="img-rounded">
+<!-- PRODUCT LIST -->
+<div class="product-page">
+  <div class="container">
 
-<h4>{{pdetail.pname}}</h4>
-<h5>{{pdetail.description}}</h5>
-<h6>${{pdetail.price}}</h6>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let pdetail of productdetails">
 
-                       
-                          <button type="button" class="btn btn-success btn-lg" (click)="AddToCart(pdetail)">
-                            Add To Cart
-                       </button>
+        <div class="product-card">
 
-                       <br><br>
-                          </div>
-                        </div>
+          <img
+            [src]="pdetail.image_url"
+            alt="image not found"
+          >
 
-                        </div>
-         <!--  <table class='table table-bordered'>
-                <thead>
-                    <tr class='table table-striped'>
-                        <th>id</th>
-                        <th>name</th>
-                        <th>description</th>
-                        <th>price</th>
-                        <th>image_url</th>
-                        <th>user_id</th>
-                        <th>Action</th>
-                    </tr>
-            
-                </thead>
-              <tbody>
-                <tr  *ngFor="let clist of cart">
-                    <td>{{clist.id}}</td>
-                    <td>{{clist.name}}</td>
-                    <td>{{clist.descriprtion}}</td>
-                    <td>{{clist.price}}</td>
-                    <td><img src={{clist.image_url}}></td>
-                    <td>{{clist.user_id}}</td>
-                   <td>
-                       <button type="button" class="btn btn-danger btn-lg" (click)="AddToCart()">
-                             AddToCart
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>--> 
+          <h4 class="product-name">{{ pdetail.pname }}</h4>
+
+          <p class="product-desc">{{ pdetail.description }}</p>
+
+          <div class="product-footer">
+            <span class="price">₹{{ pdetail.price }}</span>
+
+            <button
+              class="btn btn-success"
+              (click)="AddToCart(pdetail)">
+              Add To Cart
+            </button>
+          </div>
+
+        </div>
+
+      </div>
     </div>
-</div>
-</div>
 
+  </div>
+</div>
