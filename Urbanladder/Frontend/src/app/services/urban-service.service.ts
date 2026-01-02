@@ -128,29 +128,22 @@ login(user: UserDetails) {
         pipe(map(response=>response._embedded.product_detailses));
     }
 
-    AddToCart(pdetail:ProductDetails){
-this.items.push(pdetail);
-//this.getTotalPrice();
-    }
- /* getTotalPrice() :number{
-    let grandtotal=0;
-    this.items.map((items:any)=>{
-grandtotal +=items.total;
-    })
-    return grandtotal
-  }*/
+    AddToCart(pdetail: ProductDetails) {
+  this.items.push(pdetail);
+}
 
-    getItems() {
-      return this.items;
-    }
+getItems() {
+  return this.items;
+}
 
-/*removeCartItem(items:ProductDetails){
-  this.items.map((a:any,index:any)=>{
-if(items.p_id==a.p_id)
-this.items.splice(index,1);
-  })
+getTotalPrice(): number {
+  let total = 0;
+  this.items.forEach(item => {
+    total += item.price;
+  });
+  return total;
+}
 
-}*/
 
 removeAllcart(){
   this.items=[]

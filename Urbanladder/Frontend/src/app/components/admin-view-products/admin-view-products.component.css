@@ -1,0 +1,21 @@
+.view-page {
+  padding: 20px 30px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.count {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+table img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}

@@ -14,6 +14,11 @@ export class SucessfulComponent implements OnInit {
   }
 
   goback(){
-    this.router.navigateByUrl("/");
+    this.router.navigateByUrl("/carts");
   }
+
+  logout() {
+  this.router.navigateByUrl('/login'); // MAIN page
+}
+
 }

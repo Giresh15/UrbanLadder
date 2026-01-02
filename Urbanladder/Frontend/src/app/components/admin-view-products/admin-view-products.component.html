@@ -1,0 +1,36 @@
+<div class="view-page">
+
+  <div class="header">
+    <h2>All Products (Inventory View)</h2>
+    <button class="btn btn-secondary" (click)="backToAdmin()">Back</button>
+  </div>
+
+  <p class="count">
+    Total Products: <strong>{{ productdetails.length }}</strong>
+  </p>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Stock</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let p of productdetails">
+        <td>
+          <img [src]="p.image_url" alt="product">
+        </td>
+        <td>{{ p.pname }}</td>
+        <td>{{ p.description }}</td>
+        <td>₹{{ p.price }}</td>
+        <td>{{ p.units_in_stock }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

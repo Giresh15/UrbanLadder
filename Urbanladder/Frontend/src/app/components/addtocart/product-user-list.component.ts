@@ -10,60 +10,56 @@ import { UrbanServiceService } from 'src/app/services/urban-service.service';
 })
 export class ProductUserListComponent implements OnInit {
 
-  items = this.urban.getItems();
+  productdetails!: ProductDetails[];
 
-  public grandtotal !:number;
+  items: any[] = [];
+  totalAmount = 0;
 
-  searchName:string;
-  productdetails:ProductDetails[];
+  searchName!: string;
 
-  
-  constructor( private router:Router,private activeRoute:ActivatedRoute,
-    public urban:UrbanServiceService
-  ) { }
+  constructor(
+    private router: Router,
+    private activeRoute: ActivatedRoute,
+    public urban: UrbanServiceService
+  ) {}
 
   ngOnInit(): void {
-    this.activeRoute.paramMap.subscribe(()=>{
-      this.getAllProductDetails() });
 
-     // this.grandtotal=this.urban.getTotalPrice();
+    // product list
+    this.activeRoute.paramMap.subscribe(() => {
+      this.getAllProductDetails();
+    });
+
+    // cart items
+    this.items = this.urban.getItems();
+
+    // default select all
+    this.items.forEach(item => item.selected = true);
+
+    this.calculateTotal();
   }
 
- 
+  calculateTotal() {
+    this.totalAmount = 0;
 
-  buyNow(){
-    this.router.navigateByUrl("/paymentform");
+    this.items.forEach(item => {
+      if (item.selected) {
+        this.totalAmount += item.product.price * item.quantity;
+      }
+    });
   }
 
-  
-  shopMore(){
-    this.router.navigateByUrl("/carts");
+  buyNow() {
+    this.router.navigateByUrl('/paymentform');
   }
-  
 
+  shopMore() {
+    this.router.navigateByUrl('/carts');
+  }
 
-    getAllProductDetails() {
-     /* const hassearchName:boolean = this.activeRoute.snapshot.paramMap.has("pname");
-      if(hassearchName)
-       {
-     
-         this.searchName=this.activeRoute.snapshot.paramMap.get("pname");
-         console.log(this.searchName);
-         this.urban.getProductsBySearchName(this.searchName).subscribe(data=>{
-             console.log(data);
-           this.productdetails=data;
-         });
-       
-       }
-       else{*/
-
-      this.urban.getAllProductDetails().subscribe(data => {
-        console.log(data);
-    
-        this.productdetails = data;
-      });
-    //  }
+  getAllProductDetails() {
+    this.urban.getAllProductDetails().subscribe(data => {
+      this.productdetails = data;
+    });
+  }
 }
-}
-
-

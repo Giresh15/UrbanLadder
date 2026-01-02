@@ -16,6 +16,8 @@ import { CartListComponent } from './components/cart-list/cart-list.component';
 import { PaymentformComponent } from './components/paymentform/paymentform.component';
 import { SucessfulComponent } from './components/sucessful/sucessful.component';
 import { ProductcategeoryComponent } from './components/productcategeory/productcategeory.component';
+import { AdminViewProductsComponent } from './components/admin-view-products/admin-view-products.component';
+
 
 
 const routes :Routes = [
@@ -30,7 +32,9 @@ const routes :Routes = [
   {path : 'paymentform',component:PaymentformComponent},
   {path : 'addtocart',component:ProductUserListComponent},
   {path : 'successful',component:SucessfulComponent},
-  {path : 'search/pname/:pname',component:CartListComponent}
+  {path : 'search/pname/:pname',component:CartListComponent},
+  {path: 'admin-view-products', component: AdminViewProductsComponent }
+
 
 
 
@@ -49,7 +53,8 @@ const routes :Routes = [
     CartListComponent,
     PaymentformComponent,
     SucessfulComponent,
-    ProductcategeoryComponent
+    ProductcategeoryComponent,
+    AdminViewProductsComponent
   ],
   imports: [
     BrowserModule,

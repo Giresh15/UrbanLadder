@@ -14,22 +14,35 @@
 
   <div class="cart-card" *ngFor="let item of items; let i=index">
 
-    <input type="checkbox" class="cart-check"/>
+    <div class="cart-card" *ngFor="let item of items; let i=index">
 
-    <img
-      [src]="item.image_url"
-      alt="image not found"
-      class="cart-img"
-    >
+  <input
+    type="checkbox"
+    [(ngModel)]="item.selected"
+    (change)="calculateTotal()"
+  />
 
-    <div class="cart-details">
-      <h4>{{ item.pname }}</h4>
-      <p>{{ item.description }}</p>
-      <div class="cart-price">₹{{ item.price }}</div>
+  <img
+    [src]="item.product.image_url"
+    alt="image not found"
+    class="cart-img"
+  >
+
+  <div class="cart-details">
+    <h4>{{ item.product.pname }}</h4>
+    <p>{{ item.product.description }}</p>
+    <div class="cart-price">
+      ₹{{ item.product.price }}
+    </div>
+  </div>
+
     </div>
 
   </div>
 
+</div>
+<div class="cart-total">
+  <h3>Total Amount: ₹{{ totalAmount }}</h3>
 </div>
 
 <!-- BUY BUTTON -->

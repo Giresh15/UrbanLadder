@@ -2,14 +2,19 @@
 
   <h2 class="checkout-title">Checkout</h2>
 
+  <!-- ORDER SUMMARY -->
+  <div class="order-summary">
+    <h3>Total Amount: ₹{{ totalAmount }}</h3>
+  </div>
+
   <div class="checkout-grid">
 
     <!-- BILLING ADDRESS -->
     <div class="checkout-card">
       <h3>Billing Address</h3>
 
-      <input type="text" placeholder="Full Name">
-      <input type="email" placeholder="Email">
+      <input type="text" placeholder="Full Name" [(ngModel)]="fullName">
+      <input type="email" placeholder="Email" [(ngModel)]="email">
       <input type="text" placeholder="Address">
       <input type="text" placeholder="City">
       <input type="text" placeholder="State">
@@ -20,13 +25,36 @@
     <div class="checkout-card">
       <h3>Payment</h3>
 
-      <img src="assets/images/card_img.png" class="card-img" alt="Cards">
+      <!-- PAYMENT OPTIONS -->
+      <label>
+        <input type="radio" value="CARD" [(ngModel)]="paymentType"> Card
+      </label>
+      <label>
+        <input type="radio" value="UPI" [(ngModel)]="paymentType"> UPI
+      </label>
+      <label>
+        <input type="radio" value="COD" [(ngModel)]="paymentType"> COD
+      </label>
 
-      <input type="text" placeholder="Name on Card">
-      <input type="number" placeholder="Card Number">
-      <input type="text" placeholder="Expiry Month">
-      <input type="number" placeholder="Expiry Year">
-      <input type="password" placeholder="CVV">
+      <!-- CARD -->
+      <div *ngIf="paymentType === 'CARD'">
+        <input type="text" placeholder="Name on Card" [(ngModel)]="cardName">
+        <input type="number" placeholder="Card Number" [(ngModel)]="cardNumber">
+        <input type="text" placeholder="Expiry Month" [(ngModel)]="expiryMonth">
+        <input type="number" placeholder="Expiry Year" [(ngModel)]="expiryYear">
+        <input type="password" placeholder="CVV" [(ngModel)]="cvv">
+      </div>
+
+      <!-- UPI -->
+      <div *ngIf="paymentType === 'UPI'">
+        <input type="text" placeholder="UPI ID" [(ngModel)]="upiId">
+      </div>
+
+      <!-- COD -->
+      <div *ngIf="paymentType === 'COD'">
+        <p>Pay cash at delivery</p>
+      </div>
+
     </div>
 
   </div>
@@ -35,6 +63,15 @@
     <button class="btn btn-success btn-lg" (click)="payNow()">
       Pay Now
     </button>
+  </div>
+
+  <!-- RESULT -->
+  <div *ngIf="paymentStatus === 'SUCCESS'" class="success-msg">
+    ✅ Payment Successful
+  </div>
+
+  <div *ngIf="paymentStatus === 'FAILED'" class="error-msg">
+    ❌ Payment Failed
   </div>
 
 </div>

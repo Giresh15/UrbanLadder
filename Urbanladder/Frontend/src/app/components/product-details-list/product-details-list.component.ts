@@ -53,6 +53,10 @@ export class ProductDetailsListComponent implements OnInit {
  
 }
 
+viewAllProducts() {
+  this.route.navigateByUrl('/admin-view-products');
+}
+
 show3()
 {
   this.route.navigateByUrl("/login");
